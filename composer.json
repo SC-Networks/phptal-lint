@@ -1,0 +1,43 @@
+{
+    "name": "scn/phptal-link",
+    "homepage": "https://github.com/SC-Networks/phptal-lint/",
+    "description": "phptal-lint is a cli linting tool for phptal",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "phptal",
+        "linter"
+    ],
+    "authors": [
+        {
+            "name": "Daniel Jakob",
+            "homepage": "https://www.sc-networks.com"
+        }
+    ],
+    "require": {
+        "php": "^5.6||^7.2",
+	    "scn/phptal": "dev-master",
+        "splitbrain/php-cli": "^1.1"
+    },
+    "require-dev": {
+        "php": "^5.6||^7.2",
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Scn\\PhpTalLint\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        },
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "tests": "bin/phpunit -c phpunit.xml"
+    },
+    "scripts-descriptions": {
+        "tests": "Run the project's unittest"
+    }
+}
