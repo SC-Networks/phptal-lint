@@ -1,5 +1,5 @@
 {
-    "name": "scn/phptal-link",
+    "name": "scn/phptal-lint",
     "homepage": "https://github.com/SC-Networks/phptal-lint/",
     "description": "phptal-lint is a cli linting tool for phptal",
     "license": "MIT",
