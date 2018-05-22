@@ -35,9 +35,11 @@
         "bin-dir": "bin"
     },
     "scripts": {
-        "tests": "bin/phpunit -c phpunit.xml"
+        "tests": "bin/phpunit -c phpunit.xml",
+	"lint-tests": "bin/phptal-lint -d tests/files"
     },
     "scripts-descriptions": {
-        "tests": "Run the project's unittest"
+        "tests": "Run the project's unittest",
+	"lint-tests": "Run the linter on a set of demo files"
     }
 }
