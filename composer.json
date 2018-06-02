@@ -36,10 +36,10 @@
     },
     "scripts": {
         "tests": "bin/phpunit -c phpunit.xml",
-	"lint-tests": "bin/phptal-lint -d tests/files"
+        "lint-tests": "bin/phptal-lint -d tests/files"
     },
     "scripts-descriptions": {
         "tests": "Run the project's unittest",
-	"lint-tests": "Run the linter on a set of demo files"
+        "lint-tests": "Run the linter on a set of demo files"
     }
 }

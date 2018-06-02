@@ -1,12 +1,12 @@
 <?php
+
 namespace Scn\PhpTalLint;
 
-use Scn\PhpTalLint\TestRunnerInterface;
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
 
 /**
- * PhpTalLintCli
+ * PhpTalLintCli.
  */
 final class PhpTalLintCli extends CLI
 {
@@ -27,7 +27,6 @@ final class PhpTalLintCli extends CLI
 
     /**
      * @param Options $options
-     * @return void
      */
     protected function setup(Options $options)
     {
@@ -38,7 +37,6 @@ final class PhpTalLintCli extends CLI
 
     /**
      * @param Options $options
-     * @return void
      */
     protected function main(Options $options)
     {
@@ -50,10 +48,9 @@ final class PhpTalLintCli extends CLI
             echo $options->help();
         }
     }
-   
+
     /**
      * @param string $path
-     * @return void
      */
     private function handleDirectory($path)
     {
@@ -76,7 +73,6 @@ final class PhpTalLintCli extends CLI
 
     /**
      * @param string $filename
-     * @return void
      */
     private function handleFile($filename)
     {

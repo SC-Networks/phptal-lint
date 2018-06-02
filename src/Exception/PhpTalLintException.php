@@ -1,10 +1,10 @@
 <?php
+
 namespace Scn\PhpTalLint\Exception;
 
 /**
- * PhpTalLintException
+ * PhpTalLintException.
  */
 abstract class PhpTalLintException extends \Exception
 {
-	
 }
