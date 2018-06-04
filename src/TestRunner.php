@@ -10,12 +10,15 @@ use PhpTal\PHPTAL;
 final class TestRunner implements TestRunnerInterface
 {
     /**
-     * @var string[]
+     * @var \Exception[]
      */
     private $errors = [];
 
     /**
      * @param string[] $files
+     *
+     * @throws Exception\PhpTalLintException
+     * @throws \Throwable
      */
     public function run(array $files)
     {
@@ -43,6 +46,7 @@ final class TestRunner implements TestRunnerInterface
      * @param string $filename
      *
      * @throws Exception\PhpTalLintException
+     * @throws \Throwable
      */
     private function testSingleFile($filename)
     {
@@ -57,7 +61,7 @@ final class TestRunner implements TestRunnerInterface
 
     private function handleErrors()
     {
-        if (count($this->errors) == 0) {
+        if (count($this->errors) === 0) {
             printf(
                 '%1$s%1$sOK%1$s',
                 PHP_EOL
