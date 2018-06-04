@@ -27,6 +27,7 @@ final class PhpTalLintCli extends CLI
 
     /**
      * @param Options $options
+     * @throws \splitbrain\phpcli\Exception
      */
     protected function setup(Options $options)
     {
@@ -37,6 +38,7 @@ final class PhpTalLintCli extends CLI
 
     /**
      * @param Options $options
+     * @throws \splitbrain\phpcli\Exception
      */
     protected function main(Options $options)
     {
