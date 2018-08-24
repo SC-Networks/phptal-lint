@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^5.6||^7.2",
-	    "scn/phptal": "dev-master",
+	    "scn/phptal": "^2",
         "splitbrain/php-cli": "^1.1"
     },
     "require-dev": {
