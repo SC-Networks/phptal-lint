@@ -28,14 +28,16 @@
             "Scn\\PhpTalLint\\": "src/"
         }
     },
+	"bin": [
+		"bin/phptal-lint"
+	],
     "config": {
         "platform": {
             "php": "5.6"
-        },
-        "bin-dir": "bin"
+        }
     },
     "scripts": {
-        "tests": "bin/phpunit -c phpunit.xml",
+        "tests": "./vendor/bin/phpunit -c phpunit.xml",
         "lint-tests": "bin/phptal-lint -d tests/files"
     },
     "scripts-descriptions": {
