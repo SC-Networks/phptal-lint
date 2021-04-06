@@ -2,15 +2,11 @@
 
 namespace Scn\PhpTalLint\Exception;
 
-/**
- * LintFailedException.
- */
+use Exception;
+
 class LintFailedException extends PhpTalLintException
 {
-    /**
-     * @param \Exception $e
-     */
-    public function __construct(\Exception $e)
+    public function __construct(Exception $e)
     {
         $this->message = $e->getMessage();
         $this->code = $e->getCode();

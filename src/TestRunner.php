@@ -1,26 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scn\PhpTalLint;
 
 use PhpTal\PHPTAL;
+use Throwable;
 
-/**
- * TestRunner.
- */
 final class TestRunner implements TestRunnerInterface
 {
     /**
      * @var \Exception[]
      */
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * @param string[] $files
      *
      * @throws Exception\PhpTalLintException
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function run(array $files)
+    public function run(array $files): void
     {
         printf(
             'Linting %1$d file(s)...%2$s%2$s',
@@ -43,15 +43,14 @@ final class TestRunner implements TestRunnerInterface
     }
 
     /**
-     * @param string $filename
-     *
      * @throws Exception\PhpTalLintException
-     * @throws \Throwable
+     * @throws Throwable
      */
-    private function testSingleFile($filename)
+    private function testSingleFile(string $filename): void
     {
         try {
             $phptal = new PHPTAL($filename);
+            $phptal->allowPhpModifier();
             $phptal->setForceReparse(true);
             $phptal->prepare();
         } catch (\Exception $e) {
@@ -59,7 +58,7 @@ final class TestRunner implements TestRunnerInterface
         }
     }
 
-    private function handleErrors()
+    private function handleErrors(): void
     {
         if (count($this->errors) === 0) {
             printf(

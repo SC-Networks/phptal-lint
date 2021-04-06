@@ -2,22 +2,18 @@
 
 namespace Scn\PhpTalLint;
 
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use RecursiveRegexIterator;
+use RegexIterator;
 use splitbrain\phpcli\CLI;
+use splitbrain\phpcli\Exception;
 use splitbrain\phpcli\Options;
 
-/**
- * PhpTalLintCli.
- */
 final class PhpTalLintCli extends CLI
 {
-    /**
-     * @var TestRunnerInterface
-     */
-    private $testRunner;
+    private TestRunnerInterface $testRunner;
 
-    /**
-     * @param TestRunnerInterface $testRunner
-     */
     public function __construct(TestRunnerInterface $testRunner)
     {
         parent::__construct();
@@ -26,8 +22,7 @@ final class PhpTalLintCli extends CLI
     }
 
     /**
-     * @param Options $options
-     * @throws \splitbrain\phpcli\Exception
+     * @throws Exception
      */
     protected function setup(Options $options)
     {
@@ -37,8 +32,7 @@ final class PhpTalLintCli extends CLI
     }
 
     /**
-     * @param Options $options
-     * @throws \splitbrain\phpcli\Exception
+     * @throws Exception
      */
     protected function main(Options $options)
     {
@@ -51,17 +45,14 @@ final class PhpTalLintCli extends CLI
         }
     }
 
-    /**
-     * @param string $path
-     */
-    private function handleDirectory($path)
+    private function handleDirectory(string $path): void
     {
-        $iterator = new \RegexIterator(
-            new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator(realpath($path))
+        $iterator = new RegexIterator(
+            new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator(realpath($path))
             ),
             '/^.+\.(html|xhtml|tpl)$/i',
-            \RecursiveRegexIterator::GET_MATCH
+            RecursiveRegexIterator::GET_MATCH
         );
 
         $files = [];
@@ -73,10 +64,7 @@ final class PhpTalLintCli extends CLI
         $this->testRunner->run($files);
     }
 
-    /**
-     * @param string $filename
-     */
-    private function handleFile($filename)
+    private function handleFile(string $filename): void
     {
         $path = realpath($filename);
 

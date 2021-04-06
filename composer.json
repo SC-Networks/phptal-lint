@@ -15,27 +15,27 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-	    "scn/phptal": "^2",
+        "php": "^7.4 || ^8",
+	    "scn/phptal": "dev-master",
         "splitbrain/php-cli": "^1.1"
     },
     "require-dev": {
-        "php": "^7.2",
-        "phpunit/phpunit": "^7.2"
+        "php": "^7 || ^8",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
             "Scn\\PhpTalLint\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Scn\\PhpTalLint\\": ["src/", "tests/"]
+        }
+    },
 	"bin": [
 		"bin/phptal-lint"
 	],
-    "config": {
-        "platform": {
-            "php": "7.2"
-        }
-    },
     "scripts": {
         "tests": "./vendor/bin/phpunit -c phpunit.xml",
         "lint-tests": "bin/phptal-lint -d tests/files"
